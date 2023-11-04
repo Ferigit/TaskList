@@ -3,13 +3,12 @@ import clsx from "classnames";
 import { ErrorMessage } from "components/common";
 import { InputProps } from "interfaces/form";
 
-const TextInput: React.FC<InputProps> = ({
-  placeholder = "placeholder ... ",
+const CheckboxInput: React.FC<InputProps> = ({
+  placeholder = "write here ... ",
   ...props
 }) => {
   const {
     label,
-    type = "text",
     name,
     control,
     disabled,
@@ -33,17 +32,11 @@ const TextInput: React.FC<InputProps> = ({
       )}
       <input
         data-testid="text-input-field"
-        type={type}
+        type={"checkbox"}
         id={name}
         disabled={disabled}
         placeholder={placeholder}
-        className={clsx(
-          `block w-full px-4 py-[11px] leading-6 text-base text-blue-oil rounded-[10px] focus:outline-none ${
-            errors?.[name]?.message
-              ? "border border-red-400"
-              : "border border-grey-500 "
-          }`
-        )}
+        className="w-6 h-6 accent-purple !text-danger bg-purple focus:!ring-danger border-purple text-purple"
         {...(control ? { ...control } : register ? { ...register(name) } : {})}
       />
       <ErrorMessage error={errors?.[name]?.message} />
@@ -51,4 +44,4 @@ const TextInput: React.FC<InputProps> = ({
   );
 };
 
-export default TextInput;
+export default CheckboxInput;

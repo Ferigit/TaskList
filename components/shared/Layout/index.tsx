@@ -2,16 +2,17 @@ import React, { ReactNode } from "react";
 import { Header, Footer } from "components/shared";
 
 type Props = {
-  children?: ReactNode;
-  title?: string;
+  children: ReactNode;
+  title: string;
+  className?: string;
 };
 
-const Layout = ({ children }: Props) => (
-  <div>
-    <Header />
+const Layout = ({ children, title, className = "" }: Props) => (
+  <section className={className}>
+    <Header title={title} />
     {children}
     <Footer />
-  </div>
+  </section>
 );
 
-export { Layout };
+export default Layout;

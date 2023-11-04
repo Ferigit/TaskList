@@ -4,8 +4,8 @@ type Props = {};
 
 const Footer = ({}: Props) => (
   <footer>
-    <span> Footer</span>
+    <span> </span>
   </footer>
 );
 
-export { Footer };
+export default Footer;
